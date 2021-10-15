@@ -1,8 +1,17 @@
-import { query as q } from "faunadb"
 import NextAuth from "next-auth"
 import Providers from "next-auth/providers"
 
-import { fauna } from '../../../services/fauna'
+const { MongoClient } = require("mongodb")
+
+async function findUser (client, email) {
+    const userLogin = {email: email}
+    const result = await client.db("ignews").collection("users").findOne(userLogin)
+    
+    if(!result) {
+        console.log("algo não está certo")
+        await client.db("ignews").collection("users").insertOne(userLogin)
+    }
+}
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -17,32 +26,18 @@ export default NextAuth({
     async signIn(user, account, profile) {
         const { email } = user
         
+        const uri = process.env.MONGODB_URI
+        const client = new MongoClient(uri)
+        
         try{
-            await fauna.query(
-                q.If(
-                    q.Not(
-                        q.Exists(
-                            q.Match(
-                                q.Index('user_by_email'),
-                                q.Casefold(user.email)
-                            )
-                        )                    
-                    ),
-                    q.Create(
-                        q.Collection('users'),
-                        { data: { email} }
-                    ),
-                    q.Get(
-                        q.Match(
-                            q.Index('user_by_email'),
-                            q.Casefold(user.email)
-                        )      
-                    )
-                ),
-            )
+            await client.connect()
+            await findUser(client,email)            
+
             return true
         }catch{
             return false
+        }finally {
+            await client.close()
         }
     }}
 })
