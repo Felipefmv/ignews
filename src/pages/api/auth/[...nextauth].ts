@@ -6,9 +6,8 @@ const { MongoClient } = require("mongodb")
 async function findUser (client, email) {
     const userLogin = {email: email}
     const result = await client.db("ignews").collection("users").findOne(userLogin)
-    
+
     if(!result) {
-        console.log("algo não está certo")
         await client.db("ignews").collection("users").insertOne(userLogin)
     }
 }
