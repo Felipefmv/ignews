@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+	<h1>ignews</h1>
+</div>
 
-## Getting Started
+## :camera: Demonstração
 
-First, run the development server:
+<p align="center">
+	<img src="github/AnimaçãoIgnews.gif"/>
+</p> -->
+
+## :dart: Objetivo
+
+Essa é uma aplicação parecida com um blog, feita com o [React](https://pt-br.reactjs.org/) e [NextJS](https://nextjs.org/). Para acessar os artigos é necessários fazer o cadastro e pagar a assinatura mensal. O usuário é salvo no [MongoDB](https://www.mongodb.com/) depois do cadastro e a parte de pagamento foi feita com a API do [Stripe](https://stripe.com/en-mx).
+Em construção.
+
+## :hammer_and_wrench: Ferramentas
+
+- [React](https://pt-br.reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Stripe](https://stripe.com/en-mx)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SASS](https://sass-lang.com/)
+- [Node](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+
+## :rocket: Executando o projeto
+
+1.Clonando o repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
+git clone https://github.com/Felipefmv/dashgo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.Para instalar rode
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+yarn
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+3.Rode
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+yarn start
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4.Acesse http://localhost:3000/
